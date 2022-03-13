@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/Navbar";
 
 const App = () => {
 
   return (
-    <>
-    <h1>Welcome to Yard Sold</h1>
-    </>
+    <Navbar/>
+   
   )
 }
 
