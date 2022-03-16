@@ -1,13 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css'
-import Navbar from './components/Navbar'
+import Navbars from './components/Navbar'
 
 
 const App = () => {
 
   return (
     
-      <Navbar/>
+      <Navbars/>
     )
 }
 
