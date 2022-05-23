@@ -1,7 +1,7 @@
 
 import './App.css';
 import Navbars from './components/Navbar';
-import Card    from './components/Card';
+// import Card    from './components/Card';
 import Home    from './components/pages/Home';
 import About   from './components/pages/About';
 import MyStore from './components/pages/MyStore';
@@ -39,7 +39,7 @@ const App = () => {
       </Routes>
     </Router>
       <Navbars/>
-      <Card/>
+      
     
     </>
       
