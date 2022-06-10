@@ -1,11 +1,11 @@
 
 import './App.css';
-import Navbars from './components/Navbar';
 // import Card    from './components/Card';
-import Home    from './components/pages/Home';
-import About   from './components/pages/About';
-import MyStore from './components/pages/MyStore';
-import Login   from './components/pages/Login';
+import Home     from './components/pages/Home';
+import About    from './components/pages/About';
+import MyStore  from './components/pages/MyStore';
+import Login    from './components/pages/Login';
+import { useState }       from 'react';
 
 
 import {
@@ -13,7 +13,11 @@ import {
   Routes, Route, Link
 } from "react-router-dom"
 
+
+
 const App = () => {
+
+  const [token, setToken]       = useState(null);
 
   const padding  = {
 
@@ -38,9 +42,6 @@ const App = () => {
         <Route path="/myStore" element={< MyStore/>}/>
       </Routes>
     </Router>
-      <Navbars/>
-      
-    
     </>
       
     )

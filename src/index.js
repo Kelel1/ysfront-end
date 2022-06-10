@@ -1,14 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React              from 'react';
+import ReactDOM           from 'react-dom';
+import App                from './App';
 import { ChakraProvider } from '@chakra-ui/react';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals    from './reportWebVitals';
+import { ApolloClient, 
+        ApolloProvider, 
+        HttpLink, 
+        InMemoryCache, 
+        gql }             from '@apollo/client';
+import { setContext }     from '@apollo/client/link/context';
+
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('vendor-token')
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `bearer ${token}` : null,
+    }
+  }
+});
+
+const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql' })
+
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: authLink.concat(httpLink)
+});
+
+
+const query = gql`
+query {
+  allVendors 
+}
+`
+
+client.query({ query })
+  .then((response) => {
+    console.log(response.data)
+  })
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider>
-      <App />
-    </ChakraProvider>
+    <ApolloProvider client={client}>
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
