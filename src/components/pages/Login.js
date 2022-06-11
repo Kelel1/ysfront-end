@@ -18,6 +18,14 @@ const Login = () => {
     )
   }
 
+  return (
+    <div>
+      <p>
+        Welcome
+      </p>
+    </div>
+  )
+
 
 }
 
