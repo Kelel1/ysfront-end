@@ -1,5 +1,6 @@
-import { useState }       from 'react';
-import LoginForm                     from '../LoginForm';
+import { useState } from 'react';
+import LoginForm    from '../LoginForm';
+import StoreFront   from './StoreFront';
 
 
 const Login = () => {
@@ -20,9 +21,7 @@ const Login = () => {
 
   return (
     <div>
-      <p>
-        Welcome
-      </p>
+      <StoreFront/>
     </div>
   )
 
