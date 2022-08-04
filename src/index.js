@@ -32,7 +32,11 @@ const client = new ApolloClient({
 
 const query = gql`
 query {
-  allVendors 
+  fetchItems {
+    name,
+    price
+  },
+  allVendors
 }
 `
 
