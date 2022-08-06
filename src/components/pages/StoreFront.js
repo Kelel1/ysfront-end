@@ -18,12 +18,18 @@ query {
 
 const StoreFront = () => {
 
+    const result = useQuery(FETCH_ITEMS);
+
+    if (result.loading) {
+        return <div>loading...</div>
+    }
+
    return (
     <div>
         <h2>
             Welcome to your Store Front [User]
         </h2>
-        <Card></Card>
+        {result.data.fetchItems.map(i => <Card key={i.id} name={i.name} price={i.price}></Card>)}
     </div>
    )
 

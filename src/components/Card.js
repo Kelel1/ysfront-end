@@ -10,7 +10,7 @@ import {
 
   const IMAGE = 'https://res.cloudinary.com/kelel/image/upload/v1650761677/a5acbqq6bupgnksbzwxk.jpg'
   
-const Card = () => {
+const Card = (props) => {
 
     return (
 
@@ -30,7 +30,7 @@ const Card = () => {
                     rounded={'lg'}
                     mt={-12}
                     pos={'relative'}
-                    height={'230px'}
+                    height={'200px'}
                     _after={{
                       transition: 'all .3s ease',
                       content: '""',
@@ -61,12 +61,27 @@ const Card = () => {
                       Item
                     </Text>
                     <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-                     Shadow Tactics game for Playstation 4
+                     Name: {props.name}
                     </Heading>
                     <Stack direction={'row'} align={'center'}>
-                      <Text fontWeight={800} fontSize={'xl'}>
-                        $50
+                      <Text fontWeight={700} fontSize={'xl'}>
+                        Price: ${props.price}
                       </Text>
+                      <Stack direction={'row'} align={'center'}>
+                      <Text fontWeight={700} fontSize={'xl'}>
+                        Inventory: {props.inventoryCount}
+                      </Text>
+                    </Stack>
+                    <Stack direction={'row'} align={'center'}>
+                      <Text fontWeight={700} fontSize={'xl'}>
+                        Total on Hold: {props.totalOnHold}
+                      </Text>
+                    </Stack>
+                    <Stack direction={'row'} align={'center'}>
+                      <Text fontWeight={700} fontSize={'xl'}>
+                        Description: {props.description}
+                      </Text>
+                    </Stack>
                     </Stack>
                   </Stack>
                 </Box>
