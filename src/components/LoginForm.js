@@ -26,6 +26,7 @@ const LoginForm = ({ setError, setToken }) => {
 
   const submit = async (event) => {
     event.preventDefault()
+    // Test code to see username, password: To be removed later
     console.log(username, password)
 
     login({ variables: { username, password } })
