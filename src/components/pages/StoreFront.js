@@ -1,5 +1,6 @@
 import   Card            from '../Card';
 import { gql, useQuery } from '@apollo/client';
+import { SimpleGrid } from '@chakra-ui/react';
 
 const FETCH_ITEMS = gql`
 query {
@@ -29,7 +30,9 @@ const StoreFront = () => {
         <h2>
             Welcome to your Store Front [User]
         </h2>
-        {result.data.fetchItems.map(i => <Card key={i.id} name={i.name} price={i.price}></Card>)}
+        <SimpleGrid columns={3} spacing={20}>
+            {result.data.fetchItems.map(i => <Card key={i.id} name={i.name} price={i.price}></Card>)}
+        </SimpleGrid>
     </div>
    )
 
