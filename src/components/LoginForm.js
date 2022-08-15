@@ -22,7 +22,7 @@ const LoginForm = ({ setError, setToken }) => {
       setToken(token)
       localStorage.setItem('vendor-token', token)
     }
-  }, [result.data]) // eslint-disable-line
+  }, [result.data, setToken]); 
 
   const submit = async (event) => {
     event.preventDefault()
