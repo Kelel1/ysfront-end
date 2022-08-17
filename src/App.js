@@ -1,9 +1,10 @@
-import                         './App.css';
+import                             './App.css';
 // import Card    from './components/Card';
-import   Home               from './components/pages/Home';
-import   About              from './components/pages/About';
-import   MyStore            from './components/pages/MyStore';
-import   Login              from './components/pages/Login';
+import   Home                 from './components/pages/Home';
+import   About                from './components/pages/About';
+import   MyStore              from './components/pages/MyStore';
+import   Login                from './components/pages/Login';
+import   AddItem              from './components/pages/AddItem';
 
 
 import {
@@ -30,6 +31,7 @@ const App = () => {
         <Link style={padding} to="about/">About</Link>
         <Link style={padding} to="myStore/">My Store</Link>
         <Link style={padding} to="/login">Login</Link>
+        <Link style={padding} to="/addItem">Add Item</Link>
       </div>
 
       <Routes>
@@ -37,6 +39,7 @@ const App = () => {
         <Route path="/login" element={< Login/>}/>
         <Route path="/about" element={< About/>}/>
         <Route path="/myStore" element={< MyStore/>}/>
+        <Route path="/addItem" element={< AddItem/>}/>
       </Routes>
     </Router>
     </>
