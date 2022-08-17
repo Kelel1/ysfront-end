@@ -1,5 +1,6 @@
-import   React       from "react";
-import { useFormik } from "formik";
+import      React                        from "react";
+import    { useFormik, yupToFormErrors } from "formik";
+import * as Yup                          from "yup";
 
 const AddItem = () => {
 
@@ -12,6 +13,9 @@ const AddItem = () => {
             description: "",
             images: null,
         },
+        validationSchema: Yup.object({
+            
+        }),
         onSubmit: (values) => {
             console.log(values);
         }
