@@ -11,6 +11,9 @@ const AddItem = () => {
             totalOnHold: "",
             description: "",
             images: null,
+        },
+        onSubmit: (values) => {
+
         }
     });
 
@@ -75,6 +78,9 @@ const AddItem = () => {
                     onChange={formik.handleChange}
                     value={formik.values.images}
                 />
+            </div>
+            <div>
+                <button type="submit">Submit</button>
             </div>
         </form>
     )
