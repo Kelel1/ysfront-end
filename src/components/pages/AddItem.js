@@ -13,12 +13,12 @@ const AddItem = () => {
             images: null,
         },
         onSubmit: (values) => {
-
+            console.log(values);
         }
     });
 
     return (
-        <form>
+        <form onSubmit={formik.handleSubmit}>
             <div className="input-container">
                 <input 
                     id="itemName"
