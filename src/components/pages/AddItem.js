@@ -1,5 +1,5 @@
 import      React                        from "react";
-import    { useFormik, yupToFormErrors } from "formik";
+import    { useFormik }                  from "formik";
 import * as Yup                          from "yup";
 
 const AddItem = () => {
@@ -11,10 +11,14 @@ const AddItem = () => {
             inventory: "",
             totalOnHold: "",
             description: "",
-            images: null,
+            images: "",
         },
         validationSchema: Yup.object({
-            
+            itemName: Yup.string().max(15, "Item name cannot be more than 15 characters.")
+                         .required("Required"),
+            price: Yup.string().required("Required"),
+            inventory: Yup.number(),
+            totalOnHold: Yup.number(),
         }),
         onSubmit: (values) => {
             console.log(values);

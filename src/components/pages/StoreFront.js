@@ -35,7 +35,7 @@ const StoreFront = () => {
             Welcome to your Store Front {result.data.me.username}
         </h2>
         <SimpleGrid columns={[2, null, 3]} spacing={20}>
-            {result.data.fetchItems.map(i => <Card key={i.id} name={i.name} price={i.price}></Card>)}
+            { Array.isArray(result.data)? result.data.fetchItems.map(i => <Card key={i.id} name={i.name} price={i.price}></Card>): null}
         </SimpleGrid>
     </div>
    )
