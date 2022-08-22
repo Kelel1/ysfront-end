@@ -19,6 +19,7 @@ const AddItem = () => {
             price: Yup.string().required("Required"),
             inventory: Yup.number(),
             totalOnHold: Yup.number(),
+            description: Yup.string().required("Required")
         }),
         onSubmit: (values) => {
             console.log(values);
@@ -34,8 +35,10 @@ const AddItem = () => {
                     type="text"
                     placeholder="Item name"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     value={formik.values.itemName}
                 />
+                {formik.touched.itemName && formik.errors.itemName ? <p>{formik.errors.itemName}</p> : null}
             </div>
             <div className="input-container">
                 <input 
@@ -44,8 +47,10 @@ const AddItem = () => {
                     type="text"
                     placeholder="Price"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     value={formik.values.price}
                 />
+                {formik.touched.price && formik.errors.price ? <p>{formik.errors.price}</p> : null}
             </div>
             <div className="input-container">
                 <input 
@@ -54,8 +59,10 @@ const AddItem = () => {
                     type="number"
                     placeholder="Inventory"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     value={formik.values.inventory}
                 />
+                {formik.touched.inventory && formik.errors.inventory ? <p>{formik.error.inventory}</p> : null}
             </div>
             <div className="input-container">
                 <input 
@@ -64,8 +71,10 @@ const AddItem = () => {
                     type="number"
                     placeholder="Total on hold"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     value={formik.values.totalOnHold}
                 />
+                {formik.touched.totalOnHold && formik.errors.totalOnHold ? <p>{formik.error.totalOnHold}</p> : null}
             </div>
             <div className="input-container">
                 <input 
@@ -74,8 +83,10 @@ const AddItem = () => {
                     type="text"
                     placeholder="Description"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     value={formik.values.description}
                 />
+                {formik.touched.description && formik.errors.description ? <p>{formik.error.description}</p> : null}
             </div>
             <div className="input-container">
                 <input 
