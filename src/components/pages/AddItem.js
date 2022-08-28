@@ -1,44 +1,84 @@
 import      React                        from "react";
 import    { useFormik }                  from "formik";
 import * as Yup                          from "yup";
+import    { gql, useMutation }           from "@apollo/client"; 
+
+const CREATE_ITEM = gql`
+    mutation createItem($name: String!, $price: String!, $inventoryCount: Int!, 
+                        $totalOnHold: Int!, $description: String!, $images: [String!]) {
+                            addItem(
+                                name: $name,
+                                price: $price,
+                                inventoryCount: $inventoryCount,
+                                totalOnHold: $totalOnHold,
+                                description: $description,
+                                images: $images,
+                            ) {
+                                name,
+                                price,
+                                description
+                            }
+                        }
+`
+// Test query to see added Items(Remove later)
+const FETCH_ITEMS= gql`
+    query {
+        fetchItems {
+            name,
+            price
+        }
+}
+`
 
 const AddItem = () => {
 
+    const [ createItem, { loading, error } ] = useMutation(CREATE_ITEM, {
+        refetchQueries: [ { query:  FETCH_ITEMS } ]
+    });
+    
+
     const formik = useFormik({
         initialValues: {
-            itemName: "",
+            name: "",
             price: "",
-            inventory: "",
+            inventoryCount: "",
             totalOnHold: "",
             description: "",
             images: "",
         },
         validationSchema: Yup.object({
-            itemName: Yup.string().max(15, "Item name cannot be more than 15 characters.")
+            name: Yup.string().max(15, "Item name cannot be more than 15 characters.")
                          .required("Required"),
             price: Yup.string().required("Required"),
-            inventory: Yup.number(),
+            inventoryCount: Yup.number(),
             totalOnHold: Yup.number(),
             description: Yup.string().required("Required")
         }),
         onSubmit: (values) => {
+            // console.log(values); 
+            createItem({ variables: values });
             console.log(values);
         }
     });
+    if (loading) return 'Submitting...';
+    if (error) return `Submission error! ${error.message}`;
+
+    console.log(formik);
+
 
     return (
         <form onSubmit={formik.handleSubmit}>
             <div className="input-container">
                 <input 
-                    id="itemName"
-                    name="itemName"
+                    id="name"
+                    name="name"
                     type="text"
                     placeholder="Item name"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.itemName}
+                    value={formik.values.name}
                 />
-                {formik.touched.itemName && formik.errors.itemName ? <p>{formik.errors.itemName}</p> : null}
+                {formik.touched.name && formik.errors.name ? <p>{formik.errors.name}</p> : null}
             </div>
             <div className="input-container">
                 <input 
@@ -54,15 +94,16 @@ const AddItem = () => {
             </div>
             <div className="input-container">
                 <input 
-                    id="inventory"
-                    name="inventory"
+                    id="inventoryCount"
+                    name="inventoryCount"
                     type="number"
                     placeholder="Inventory"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.inventory}
                 />
-                {formik.touched.inventory && formik.errors.inventory ? <p>{formik.error.inventory}</p> : null}
+                {formik.touched.inventoryCount && formik.errors.inventoryCount ? 
+                 <p>{formik.error.inventoryCount}</p> : null}
             </div>
             <div className="input-container">
                 <input 

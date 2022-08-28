@@ -39,7 +39,7 @@ const LoginForm = ({ setError, setToken }) => {
                 <div> 
                     <Stack spacing={20} py={5} px={20} >
                         <p>
-                        Sorry, user login necessary.
+                          Login
                         </p>
                     </Stack>
 
