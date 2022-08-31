@@ -12,14 +12,14 @@
 - - [x] Create add item form
 - - [ ] Improve css styling/responsiveness
 - - [ ] Implent logout/cancel account functionality
-- - [] Add button(circle with a plus sign) to uplod image in item form to give
-       vendor ability to up multiple images(with reccomendation for 3, w/ different angles)
-- - [] Change navigation method so that current URL is shown after login
-- - [] Complete implementation of image upload functionality so that images
-       can be uploaded to form with url saved in DB from cloudinary storage
+- - [ ] Add button(circle with a plus sign) to uplod image in item form to give
+        vendor ability to up multiple images(with reccomendation for 3, w/ different angles)
+- - [ ] Change navigation method so that current URL is shown after login
+- - [ ] Complete implementation of image upload functionality so that images
+        can be uploaded to form with url saved in DB from cloudinary storage
 
 
 # Long term
-- - [] Switch codebase over to typescript
-- - [] Implement CI/CD
-- - [] Implment containerization
+- - [ ] Switch codebase over to typescript
+- - [ ] Implement CI/CD
+- - [ ] Implment containerization
