@@ -10,8 +10,8 @@
 # Short term
 - - [x] Implement Sign Up/Log In forms/pages
 - - [x] Create add item form
-- - [] Improve css styling/responsiveness
-- - [] Implent logout/cancel account functionality
+- - [ ] Improve css styling/responsiveness
+- - [ ] Implent logout/cancel account functionality
 - - [] Add button(circle with a plus sign) to uplod image in item form to give
        vendor ability to up multiple images(with reccomendation for 3, w/ different angles)
 - - [] Change navigation method so that current URL is shown after login
