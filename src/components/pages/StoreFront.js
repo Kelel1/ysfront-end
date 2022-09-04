@@ -11,7 +11,6 @@ query {
         inventoryCount,
         images,
         description,
-        onHold,
         totalOnHold,
         id
     },
